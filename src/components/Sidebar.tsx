@@ -1,7 +1,6 @@
-
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Heart, MessageSquare, Plus, Trash2, Book, Pray } from "lucide-react";
+import { Heart, MessageSquare, Plus, Trash2, Book, HandHeart } from "lucide-react";
 
 interface Message {
   id: string;
@@ -55,7 +54,7 @@ export const Sidebar = ({ isOpen, messages }: SidebarProps) => {
 
         <div className="mb-6">
           <h3 className="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-            <Pray className="h-4 w-4 text-amber-600" />
+            <HandHeart className="h-4 w-4 text-amber-600" />
             Temas de Oración
           </h3>
           <div className="space-y-2">
