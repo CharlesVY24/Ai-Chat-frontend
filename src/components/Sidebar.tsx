@@ -21,9 +21,9 @@ export const Sidebar = ({ isOpen, uploadedDocument, messages }: SidebarProps) =>
   if (!isOpen) return null;
 
   const chatSessions = [
-    { id: '1', name: 'Financial Report Analysis', lastMessage: '2 hours ago' },
-    { id: '2', name: 'Legal Document Review', lastMessage: '1 day ago' },
-    { id: '3', name: 'Research Paper Summary', lastMessage: '3 days ago' },
+    { id: '1', name: 'Análisis de Informe Financiero', lastMessage: 'hace 2 horas' },
+    { id: '2', name: 'Revisión de Documento Legal', lastMessage: 'hace 1 día' },
+    { id: '3', name: 'Resumen de Artículo de Investigación', lastMessage: 'hace 3 días' },
   ];
 
   return (
@@ -31,14 +31,14 @@ export const Sidebar = ({ isOpen, uploadedDocument, messages }: SidebarProps) =>
       <div className="p-4 border-b border-purple-100">
         <Button className="w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white gap-2">
           <Plus className="h-4 w-4" />
-          New Chat
+          Nueva Conversación
         </Button>
       </div>
 
       <ScrollArea className="flex-1 p-4">
         {uploadedDocument && (
           <div className="mb-6">
-            <h3 className="text-sm font-semibold text-gray-700 mb-3">Current Document</h3>
+            <h3 className="text-sm font-semibold text-gray-700 mb-3">Documento Actual</h3>
             <div className="bg-gradient-to-r from-purple-50 to-blue-50 p-3 rounded-lg border border-purple-200">
               <div className="flex items-center gap-2">
                 <FileText className="h-4 w-4 text-purple-600" />
@@ -54,7 +54,7 @@ export const Sidebar = ({ isOpen, uploadedDocument, messages }: SidebarProps) =>
         )}
 
         <div className="mb-6">
-          <h3 className="text-sm font-semibold text-gray-700 mb-3">Recent Chats</h3>
+          <h3 className="text-sm font-semibold text-gray-700 mb-3">Conversaciones Recientes</h3>
           <div className="space-y-2">
             {chatSessions.map((session) => (
               <div
@@ -86,9 +86,9 @@ export const Sidebar = ({ isOpen, uploadedDocument, messages }: SidebarProps) =>
 
         {messages.length > 0 && (
           <div>
-            <h3 className="text-sm font-semibold text-gray-700 mb-3">Current Session</h3>
+            <h3 className="text-sm font-semibold text-gray-700 mb-3">Sesión Actual</h3>
             <div className="text-xs text-gray-500">
-              {messages.length} message{messages.length !== 1 ? 's' : ''}
+              {messages.length} mensaje{messages.length !== 1 ? 's' : ''}
             </div>
           </div>
         )}

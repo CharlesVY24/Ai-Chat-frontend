@@ -29,7 +29,7 @@ const Index = () => {
     setTimeout(() => {
       const aiResponse = {
         id: (Date.now() + 1).toString(),
-        content: `I understand you're asking about "${content}". I can help you analyze the uploaded document "${uploadedDocument?.name || 'your document'}". This is a simulated response - in a real implementation, this would be connected to an AI service that processes your document.`,
+        content: `Entiendo que estás preguntando sobre "${content}". Puedo ayudarte a analizar el documento subido "${uploadedDocument?.name || 'tu documento'}". Esta es una respuesta simulada - en una implementación real, esto estaría conectado a un servicio de IA que procesa tu documento.`,
         role: 'assistant' as const,
         timestamp: new Date()
       };

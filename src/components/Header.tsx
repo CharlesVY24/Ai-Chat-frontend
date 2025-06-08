@@ -25,9 +25,9 @@ export const Header = ({ onToggleSidebar }: HeaderProps) => {
           </div>
           <div>
             <h1 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-              DocuChat AI
+              DocuChat IA
             </h1>
-            <p className="text-xs text-gray-500">Intelligent Document Assistant</p>
+            <p className="text-xs text-gray-500">Asistente Inteligente de Documentos</p>
           </div>
         </div>
       </div>

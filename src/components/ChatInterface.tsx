@@ -46,10 +46,10 @@ export const ChatInterface = ({ messages, onSendMessage, documentName }: ChatInt
   };
 
   const formatTime = (date: Date) => {
-    return date.toLocaleTimeString('en-US', { 
+    return date.toLocaleTimeString('es-ES', { 
       hour: '2-digit', 
       minute: '2-digit',
-      hour12: true 
+      hour12: false 
     });
   };
 
@@ -62,8 +62,8 @@ export const ChatInterface = ({ messages, onSendMessage, documentName }: ChatInt
             <FileText className="h-5 w-5 text-white" />
           </div>
           <div>
-            <h2 className="font-semibold text-gray-800">Chatting about: {documentName}</h2>
-            <p className="text-sm text-gray-500">Ask me anything about this document</p>
+            <h2 className="font-semibold text-gray-800">Conversando sobre: {documentName}</h2>
+            <p className="text-sm text-gray-500">Pregúntame cualquier cosa sobre este documento</p>
           </div>
         </div>
       </div>
@@ -76,32 +76,32 @@ export const ChatInterface = ({ messages, onSendMessage, documentName }: ChatInt
               <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Bot className="h-8 w-8 text-purple-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-700 mb-2">Start the conversation</h3>
+              <h3 className="text-xl font-semibold text-gray-700 mb-2">Inicia la conversación</h3>
               <p className="text-gray-500 max-w-md mx-auto">
-                I've analyzed your document and I'm ready to help! Ask me questions about the content, 
-                request summaries, or explore specific topics.
+                He analizado tu documento y estoy listo para ayudar. ¡Hazme preguntas sobre el contenido, 
+                solicita resúmenes o explora temas específicos!
               </p>
               <div className="mt-6 flex flex-wrap gap-2 justify-center">
                 <Button 
                   variant="outline" 
-                  onClick={() => onSendMessage("Can you summarize this document?")}
+                  onClick={() => onSendMessage("¿Puedes resumir este documento?")}
                   className="text-sm"
                 >
-                  Summarize document
+                  Resumir documento
                 </Button>
                 <Button 
                   variant="outline" 
-                  onClick={() => onSendMessage("What are the key points?")}
+                  onClick={() => onSendMessage("¿Cuáles son los puntos clave?")}
                   className="text-sm"
                 >
-                  Key points
+                  Puntos clave
                 </Button>
                 <Button 
                   variant="outline" 
-                  onClick={() => onSendMessage("Explain the main topic")}
+                  onClick={() => onSendMessage("Explica el tema principal")}
                   className="text-sm"
                 >
-                  Main topic
+                  Tema principal
                 </Button>
               </div>
             </div>
@@ -166,7 +166,7 @@ export const ChatInterface = ({ messages, onSendMessage, documentName }: ChatInt
           <Input
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Ask me anything about your document..."
+            placeholder="Pregúntame cualquier cosa sobre tu documento..."
             className="flex-1 rounded-full border-gray-200 focus:border-purple-300 focus:ring-purple-300"
           />
           <Button

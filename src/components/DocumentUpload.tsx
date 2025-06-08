@@ -54,10 +54,10 @@ export const DocumentUpload = ({ onUpload }: DocumentUploadProps) => {
           <Upload className="h-8 w-8 text-white" />
         </div>
         <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-2">
-          Upload Your Document
+          Sube tu Documento
         </h2>
         <p className="text-gray-600">
-          Upload a document to start an intelligent conversation about its contents
+          Sube un documento para iniciar una conversación inteligente sobre su contenido
         </p>
       </div>
 
@@ -80,7 +80,7 @@ export const DocumentUpload = ({ onUpload }: DocumentUploadProps) => {
                 <FileText className="h-6 w-6 text-green-600" />
               </div>
             </div>
-            <h3 className="text-lg font-semibold text-gray-700 mb-2">File Selected</h3>
+            <h3 className="text-lg font-semibold text-gray-700 mb-2">Archivo Seleccionado</h3>
             <p className="text-gray-600 mb-1">{selectedFile.name}</p>
             <p className="text-sm text-gray-500 mb-6">
               {(selectedFile.size / 1024 / 1024).toFixed(1)} MB
@@ -90,7 +90,7 @@ export const DocumentUpload = ({ onUpload }: DocumentUploadProps) => {
                 onClick={handleUpload}
                 className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white px-8"
               >
-                Start Chatting
+                Comenzar a Chatear
               </Button>
               <Button variant="outline" onClick={clearFile} className="px-4">
                 <X className="h-4 w-4" />
@@ -103,10 +103,10 @@ export const DocumentUpload = ({ onUpload }: DocumentUploadProps) => {
               <Upload className="h-8 w-8 text-gray-400" />
             </div>
             <h3 className="text-xl font-semibold text-gray-700 mb-2">
-              Drop your document here
+              Arrastra tu documento aquí
             </h3>
             <p className="text-gray-500 mb-6">
-              Or click to browse files from your computer
+              O haz clic para explorar archivos de tu computadora
             </p>
             <input
               type="file"
@@ -117,11 +117,11 @@ export const DocumentUpload = ({ onUpload }: DocumentUploadProps) => {
             />
             <label htmlFor="file-upload">
               <Button asChild className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white cursor-pointer">
-                <span>Browse Files</span>
+                <span>Explorar Archivos</span>
               </Button>
             </label>
             <div className="mt-4 text-xs text-gray-400">
-              Supported formats: PDF, DOC, DOCX, TXT, MD
+              Formatos soportados: PDF, DOC, DOCX, TXT, MD
             </div>
           </div>
         )}
