@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Send, FileText, User, Bot } from "lucide-react";
+import { Send, Heart, User, Sparkles } from "lucide-react";
 
 interface Message {
   id: string;
@@ -15,10 +15,9 @@ interface Message {
 interface ChatInterfaceProps {
   messages: Message[];
   onSendMessage: (content: string) => void;
-  documentName: string;
 }
 
-export const ChatInterface = ({ messages, onSendMessage, documentName }: ChatInterfaceProps) => {
+export const ChatInterface = ({ messages, onSendMessage }: ChatInterfaceProps) => {
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
@@ -32,7 +31,7 @@ export const ChatInterface = ({ messages, onSendMessage, documentName }: ChatInt
   useEffect(() => {
     if (messages.length > 0 && messages[messages.length - 1].role === 'user') {
       setIsTyping(true);
-      const timer = setTimeout(() => setIsTyping(false), 1500);
+      const timer = setTimeout(() => setIsTyping(false), 2000);
       return () => clearTimeout(timer);
     }
   }, [messages]);
@@ -55,15 +54,15 @@ export const ChatInterface = ({ messages, onSendMessage, documentName }: ChatInt
 
   return (
     <div className="flex flex-col h-full">
-      {/* Document Header */}
-      <div className="bg-white/80 backdrop-blur-md border-b border-purple-100 p-4">
+      {/* Spiritual Header */}
+      <div className="bg-white/80 backdrop-blur-md border-b border-amber-100 p-4">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-blue-600 rounded-lg flex items-center justify-center">
-            <FileText className="h-5 w-5 text-white" />
+          <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-lg flex items-center justify-center">
+            <Heart className="h-5 w-5 text-white" />
           </div>
           <div>
-            <h2 className="font-semibold text-gray-800">Conversando sobre: {documentName}</h2>
-            <p className="text-sm text-gray-500">Pregúntame cualquier cosa sobre este documento</p>
+            <h2 className="font-semibold text-gray-800">Conversando con Jesús</h2>
+            <p className="text-sm text-gray-500">Busca sabiduría y guía en la Palabra de Dios</p>
           </div>
         </div>
       </div>
@@ -73,35 +72,35 @@ export const ChatInterface = ({ messages, onSendMessage, documentName }: ChatInt
         <div className="space-y-6">
           {messages.length === 0 && (
             <div className="text-center py-12">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Bot className="h-8 w-8 text-purple-600" />
+              <div className="w-16 h-16 bg-gradient-to-br from-amber-100 to-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Heart className="h-8 w-8 text-amber-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-700 mb-2">Inicia la conversación</h3>
-              <p className="text-gray-500 max-w-md mx-auto">
-                He analizado tu documento y estoy listo para ayudar. ¡Hazme preguntas sobre el contenido, 
-                solicita resúmenes o explora temas específicos!
+              <h3 className="text-xl font-semibold text-gray-700 mb-2">Paz sea contigo</h3>
+              <p className="text-gray-500 max-w-md mx-auto mb-6">
+                Estoy aquí para acompañarte en tu caminar espiritual. Pregúntame sobre las Escrituras, 
+                pide consejo para tu vida, o simplemente comparte lo que está en tu corazón.
               </p>
               <div className="mt-6 flex flex-wrap gap-2 justify-center">
                 <Button 
                   variant="outline" 
-                  onClick={() => onSendMessage("¿Puedes resumir este documento?")}
-                  className="text-sm"
+                  onClick={() => onSendMessage("¿Cuál es el versículo recomendado para hoy?")}
+                  className="text-sm border-amber-200 hover:bg-amber-50"
                 >
-                  Resumir documento
+                  Versículo del día
                 </Button>
                 <Button 
                   variant="outline" 
-                  onClick={() => onSendMessage("¿Cuáles son los puntos clave?")}
-                  className="text-sm"
+                  onClick={() => onSendMessage("Necesito sabiduría para una decisión importante")}
+                  className="text-sm border-amber-200 hover:bg-amber-50"
                 >
-                  Puntos clave
+                  Pedir sabiduría
                 </Button>
                 <Button 
                   variant="outline" 
-                  onClick={() => onSendMessage("Explica el tema principal")}
-                  className="text-sm"
+                  onClick={() => onSendMessage("¿Cómo puedo tener más paz en mi corazón?")}
+                  className="text-sm border-amber-200 hover:bg-amber-50"
                 >
-                  Tema principal
+                  Buscar paz
                 </Button>
               </div>
             </div>
@@ -115,21 +114,21 @@ export const ChatInterface = ({ messages, onSendMessage, documentName }: ChatInt
               }`}
             >
               {message.role === 'assistant' && (
-                <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Bot className="h-4 w-4 text-white" />
+                <div className="w-8 h-8 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Heart className="h-4 w-4 text-white" />
                 </div>
               )}
               
               <div
                 className={`max-w-[70%] rounded-2xl px-4 py-3 ${
                   message.role === 'user'
-                    ? 'bg-gradient-to-br from-purple-500 to-blue-600 text-white'
-                    : 'bg-white border border-gray-200'
+                    ? 'bg-gradient-to-br from-amber-500 to-orange-600 text-white'
+                    : 'bg-white border border-amber-200 shadow-sm'
                 }`}
               >
                 <p className="text-sm leading-relaxed">{message.content}</p>
                 <p className={`text-xs mt-2 ${
-                  message.role === 'user' ? 'text-purple-100' : 'text-gray-400'
+                  message.role === 'user' ? 'text-amber-100' : 'text-gray-400'
                 }`}>
                   {formatTime(message.timestamp)}
                 </p>
@@ -145,14 +144,13 @@ export const ChatInterface = ({ messages, onSendMessage, documentName }: ChatInt
 
           {isTyping && (
             <div className="flex gap-3 justify-start">
-              <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                <Bot className="h-4 w-4 text-white" />
+              <div className="w-8 h-8 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center flex-shrink-0">
+                <Heart className="h-4 w-4 text-white" />
               </div>
-              <div className="bg-white border border-gray-200 rounded-2xl px-4 py-3">
-                <div className="flex gap-1">
-                  <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                  <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                  <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+              <div className="bg-white border border-amber-200 rounded-2xl px-4 py-3">
+                <div className="flex gap-1 items-center">
+                  <Sparkles className="h-3 w-3 text-amber-500 animate-pulse" />
+                  <span className="text-sm text-gray-500 italic">Jesús está escribiendo...</span>
                 </div>
               </div>
             </div>
@@ -161,18 +159,18 @@ export const ChatInterface = ({ messages, onSendMessage, documentName }: ChatInt
       </ScrollArea>
 
       {/* Input */}
-      <div className="bg-white/80 backdrop-blur-md border-t border-purple-100 p-4">
+      <div className="bg-white/80 backdrop-blur-md border-t border-amber-100 p-4">
         <form onSubmit={handleSubmit} className="flex gap-3">
           <Input
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Pregúntame cualquier cosa sobre tu documento..."
-            className="flex-1 rounded-full border-gray-200 focus:border-purple-300 focus:ring-purple-300"
+            placeholder="Comparte lo que está en tu corazón..."
+            className="flex-1 rounded-full border-amber-200 focus:border-amber-300 focus:ring-amber-300"
           />
           <Button
             type="submit"
             disabled={!inputValue.trim()}
-            className="rounded-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white px-6"
+            className="rounded-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-6"
           >
             <Send className="h-4 w-4" />
           </Button>
